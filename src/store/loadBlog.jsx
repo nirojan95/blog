@@ -6,14 +6,18 @@ const client = contentful.createClient({
   accessToken: 'HkGOHIet_hbtrzTRhNsLxp0UemjEdXg1h5cigrQ80zM',
 });
 
-const error = (err) => console.log(err);
-
 function loadBlog() {
-  return (dispatch) => client.getEntries()
-    .then(({ items }) => {
-      dispatch(actions.loadBlogSuccess(items));
-    })
-    .catch(error);
+  return (dispatch) => {
+    dispatch(actions.blogLoading());
+    return client.getEntries()
+      .then(({ items }) => {
+        dispatch(actions.loadBlogSuccess(items));
+      })
+      .catch((error) => {
+        console.log(error);
+        dispatch(actions.blogLoading(false));
+      });
+  };
 }
 
 export default loadBlog;

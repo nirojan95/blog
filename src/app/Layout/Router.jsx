@@ -1,13 +1,13 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from '../Home';
-import Blog from '../Blog';
+import Blog from '../BlogPost';
 
 function Router() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/blog" element={<Blog />} />
+      <Route exact path="/" element={<Home />} />
+      <Route path="/blog/:blogPost" element={<Blog />} />
     </Routes>
   );
 }

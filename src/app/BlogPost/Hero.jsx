@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   hero: {
-    backgroundImage: ({ heroURL }) => `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${heroURL}')`,
+    backgroundImage: ({ heroURL }) => `url('${heroURL}')`,
     height: '500px',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
