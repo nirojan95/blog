@@ -7,7 +7,7 @@ function Router() {
   return (
     <Routes>
       <Route exact path="/" element={<Home />} />
-      <Route path="/blog/:blogPost" element={<Blog />} />
+      <Route path="/:blogPost" element={<Blog />} />
     </Routes>
   );
 }

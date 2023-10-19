@@ -2,41 +2,25 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Box from '@mui/material/Box';
 import PropTypes from 'prop-types';
-import Container from '@mui/material/Container';
 import { makeStyles } from '@mui/styles';
 import Typography from '@mui/material/Typography';
-import Pagination from '@mui/material/Pagination';
 import Card from './Home/BlogCard';
 
 const useStyles = makeStyles((theme) => ({
-  hero: {
-    backgroundImage: ' url(\'https://getwallpapers.com/wallpaper/full/4/f/2/7074.jpg\')',
-    height: '500px',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    position: 'relative',
-    display: 'flex',
+  home: {
+    paddingTop: theme.spacing(3),
+    maxWidth: '100%',
     justifyContent: 'center',
-    alignItems: 'center',
-    color: '#fff',
-    fontSize: '4rem',
-    [theme.breakpoints.down('sm')]: {
-      height: 300,
-      fontSize: '3em',
-    },
+    display: 'flex',
   },
   blogContainer: {
     paddingTop: theme.spacing(3),
+    width: '800px',
   },
   blogTitle: {
     fontWeight: 700,
-    paddingBottom: theme.spacing(3),
+    paddingBottom: theme.spacing(4),
     alignItems: 'left',
-  },
-  paginationContainer: {
-    display: 'flex',
-    justifyContent: 'center',
   },
 }));
 
@@ -44,21 +28,18 @@ function Home(props) {
   const classes = useStyles();
   const { blog } = props;
   const { posts } = blog;
+  console.log(posts);
   return (
-    <Box>
-      <Box>
-        <Container className={classes.hero} />
-        <Container maxWidth="lg" className={classes.blogContainer}>
-          <Typography variant="h4" className={classes.blogTitle}>
-            Articles
-          </Typography>
+    <Box className={classes.home}>
+      <Box className={classes.blogContainer}>
+        <Typography variant="h4" className={classes.blogTitle}>
+          Posts
+        </Typography>
+        <Box>
           { posts.map(({ fields }) => (
             <Card post={fields} key={fields.title} />
           ))}
-          <Box my={4} className={classes.paginationContainer}>
-            <Pagination count={10} />
-          </Box>
-        </Container>
+        </Box>
       </Box>
     </Box>
   );
