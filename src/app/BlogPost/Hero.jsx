@@ -15,11 +15,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     color: '#fff',
-    fontSize: '4rem',
     paddingBottom: theme.spacing(3),
     [theme.breakpoints.down('sm')]: {
       height: 300,
-      fontSize: '3em',
     },
   },
 }));

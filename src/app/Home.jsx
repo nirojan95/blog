@@ -14,13 +14,17 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   blogContainer: {
-    paddingTop: theme.spacing(3),
-    width: '800px',
+    paddingTop: theme.spacing(0),
+    paddingBottom: theme.spacing(10),
+    width: '600px',
+  },
+  posts: {
+    fontWeight: 700,
+    paddingBottom: theme.spacing(2),
+    alignItems: 'left',
   },
   blogTitle: {
-    fontWeight: 700,
-    paddingBottom: theme.spacing(4),
-    alignItems: 'left',
+    lineHeight: '0.1',
   },
 }));
 
@@ -32,10 +36,10 @@ function Home(props) {
   return (
     <Box className={classes.home}>
       <Box className={classes.blogContainer}>
-        <Typography variant="h4" className={classes.blogTitle}>
+        <Typography variant="h4" className={classes.posts}>
           Posts
         </Typography>
-        <Box>
+        <Box className={classes.blogTitle}>
           { posts.map(({ fields }) => (
             <Card post={fields} key={fields.title} />
           ))}

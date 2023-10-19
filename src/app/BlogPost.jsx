@@ -10,7 +10,7 @@ import Hero from './BlogPost/Hero';
 
 const useStyles = makeStyles((theme) => ({
   blog: {
-    paddingTop: theme.spacing(3),
+    paddingTop: theme.spacing(0),
     maxWidth: '100%',
     justifyContent: 'center',
     display: 'flex',
@@ -29,7 +29,7 @@ function Blog(props) {
   if (posts.length > 0) {
     post = posts.find((element) => location.pathname.includes(element.fields.path));
   } else {
-    post = { fields: { title: '', content: '', contentWithMedia: { content: [{ content: [{ value: '' }, { value: '' }] }] } } };
+    post = { fields: { title: '', content: '', contentWithMedia: { content: [{ content: [{ value: '', marks: [] }, { value: '', marks: [] }] }] } } };
   }
   return (
     <Box className={classes.blog}>

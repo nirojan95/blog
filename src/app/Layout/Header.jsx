@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     alignItems: 'left',
     paddingBottom: theme.spacing(1),
-    paddingTop: theme.spacing(4),
+    paddingTop: theme.spacing(10),
     postion: 'sticky',
   },
 }));

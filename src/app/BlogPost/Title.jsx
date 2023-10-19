@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 const useStyles = makeStyles((theme) => ({
   blogTitle: {
     fontWeight: 700,
-    paddingBottom: theme.spacing(3),
+    paddingBottom: theme.spacing(0),
     alignItems: 'left',
   },
   blogContainer: {

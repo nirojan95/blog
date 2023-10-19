@@ -9,27 +9,6 @@ const useStyles = makeStyles(() => ({
   card: {
     width: '100%',
   },
-  media: {
-    height: 240,
-  },
-  cardContent: {
-    height: 180,
-  },
-  content: {
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-    display: '-webkit-box',
-    '-webkit-line-clamp': 6,
-    '-webkit-box-orient': 'vertical',
-  },
-  cardActions: {
-    display: 'flex',
-    margin: '0 10px',
-    justifyContent: 'space-between',
-  },
-  author: {
-    display: 'flex',
-  },
 }));
 
 function BlogCard(props) {
@@ -38,19 +17,11 @@ function BlogCard(props) {
   console.log(post);
   return (
     <Box className={classes.card}>
-      <Link
-        className="level-item button is-small is-link is-outlined"
-        to={{
-          pathname: `${post.path}`,
-          theprops: { post },
-        }}
-      >
-        <Typography gutterBottom variant="h5" component="h2">
-          May 14, 2020 —
-          {' '}
-          {post.title}
-        </Typography>
-      </Link>
+      <Typography component={Link} to={{ pathname: `${post.path}`, theprops: { post } }} sx={{ textDecoration: 'none' }} color="secondary">
+        May 14, 2020 —
+        {' '}
+        {post.title}
+      </Typography>
     </Box>
   );
 }
